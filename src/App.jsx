@@ -1,20 +1,36 @@
 import { useState } from "react";
-import CivilisationSelector from "./components/CivilisationSelector";
-
-import "./App.css";
+import CivSelector from "./components/CivSelector";
+import Dash from "./components/Dash";
 
 function App() {
-  //   App
-  //  ├─ CivilizationSelector
-  //  ├─ CardGrid
-  //  │   └─ Card
-  //  └─ Deck
-  //      └─ DeckCard
+  const civilizations = [
+    "British",
+    "Dutch",
+    "French",
+    "Germans",
+    "Ottomans",
+    "Portuguese",
+    "Russians",
+    "Spanish",
+  ];
 
+  const [selectedCiv, setSelectedCiv] = useState("");
+
+  function handleCivSelection(civ) {
+    // setSelectedCiv(e.target.value);
+    setSelectedCiv(civ);
+  }
+
+  //
   return (
     <>
-      <div>Hello</div>
-      <CivilisationSelector />
+      <Dash />
+
+      {/* <CivSelector
+        handleCivSelection={handleCivSelection}
+        selectedCiv={selectedCiv}
+        civilizations={civilizations}
+      /> */}
     </>
   );
 }
