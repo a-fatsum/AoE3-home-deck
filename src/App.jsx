@@ -25,6 +25,7 @@ function App() {
 
   const OttomansData = (()=>{
     const ottomanCards = data.Ottomans
+    
     return ottomanCards;
   })();
 

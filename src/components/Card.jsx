@@ -1,15 +1,20 @@
 export default function Card({ name, description, image }) {
   return (
     <div
-      className="w-64 bg-[#2b1d12] border-2 border-[#c9a24d] rounded-md shadow-lg overflow-hidden
+      className="w-56 bg-[#2b1d12] border-2 border-[#c9a24d] rounded-md shadow-lg overflow-hidden
                     hover:scale-[1.03] hover:shadow-2xl transition-all duration-200"
     >
       {/* Image Frame */}
-      <div className="h-36 bg-[#1a120b] border-b-2 border-[#c9a24d] flex items-center justify-center">
+      <div className="h-24 bg-[#1a120b] border-b-2 border-[#c9a24d] flex items-center justify-center p-3">
         {image ? (
-          <img src={image} alt={name} className="h-full w-full object-cover" />
+          <img
+            src={`src/${image}`}
+            alt={name}
+            className="h-full w-full object-contain image-pixelated"
+          />
         ) : (
           <span className="text-[#c9a24d] text-sm tracking-wide">
+            {/* Change me later ⚠️ */}
             No Illustration
           </span>
         )}
