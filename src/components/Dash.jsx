@@ -1,8 +1,6 @@
 import CivSelector from "./CivSelector";
-import Card from "./Card";
 import SelectedDeckWindow from "./SelectedDeckWindow";
 
-//
 export default function Dash({
   handleCivSelection,
   OttomansData,
@@ -10,29 +8,41 @@ export default function Dash({
   civilizations,
 }) {
   return (
-    <>
-      <div className=" wrapper h-screen w-screen bg-orange-900 ">
-        <div className="grid grid-cols-4 gap-8">
-          <div className="left bg-green-900 grid">
-            LEFT
-            <div className="TOP-LEFT">{/*  */}</div>
-            <div className="BOTTOM-LEFT">
-              <CivSelector
-                handleCivSelection={handleCivSelection}
-                civilizations={civilizations}
-              />
-            </div>
+    <div className="h-screen w-screen bg-slate-900 text-slate-100 p-6">
+      <div className="grid grid-cols-12 gap-6 h-full">
+        {/* LEFT SIDEBAR */}
+        <aside className="col-span-3 bg-slate-800 rounded-xl p-4 flex flex-col gap-4">
+          {/* Top Left */}
+          <div className="flex-1 bg-slate-700 rounded-lg p-4 text-center">
+            <p className="text-sm text-slate-300">Top Left</p>
           </div>
 
-          <div className="RIGHT bg-blue-900 ">
-            <div className="TOP ">
-              <SelectedDeckWindow OttomansData={OttomansData} />
-            </div>
-
-            <div className="bottom">XXXXXXX</div>
+          {/* Bottom Left */}
+          <div className="bg-slate-700 rounded-lg p-4">
+            <h2 className="text-lg font-semibold mb-3">Civilizations</h2>
+            <CivSelector
+              handleCivSelection={handleCivSelection}
+              civilizations={civilizations}
+            />
           </div>
-        </div>
+        </aside>
+
+        {/* RIGHT MAIN CONTENT */}
+        <main className="col-span-9 bg-slate-800 rounded-xl p-4 flex flex-col gap-4">
+          {/* Top Right */}
+          <section className="flex-1 bg-slate-700 rounded-lg p-4 overflow-y-auto">
+            <h2 className="text-lg font-semibold mb-4">
+              {selectedCiv || "Selected Deck"}
+            </h2>
+            <SelectedDeckWindow OttomansData={OttomansData} />
+          </section>
+
+          {/* Bottom Right */}
+          <section className="h-32 bg-slate-700 rounded-lg flex items-center justify-center text-slate-400">
+            Bottom Panel
+          </section>
+        </main>
       </div>
-    </>
+    </div>
   );
 }
