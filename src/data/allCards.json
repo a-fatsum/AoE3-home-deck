@@ -1,18 +1,6 @@
 {
   "British": [
     {
-      "name": "Civilization",
-      "description": "Technology tree"
-    },
-    {
-      "name": "Civilization",
-      "description": "Technology tree"
-    },
-    {
-      "name": "Home City Cards",
-      "description": "Dialogue lines"
-    },
-    {
       "name": "2 Settlers",
       "description": "Ships 2 Settlers",
       "image": "/assets/cards/British/2_Settlers.png"
@@ -784,18 +772,6 @@
     }
   ],
   "Dutch": [
-    {
-      "name": "Civilization",
-      "description": "Technology tree"
-    },
-    {
-      "name": "Civilization",
-      "description": "Technology tree"
-    },
-    {
-      "name": "Home City Cards",
-      "description": "Dialogue lines"
-    },
     {
       "name": "TEAM Orangists",
       "description": "Ships 3 Envoys",
@@ -1608,18 +1584,6 @@
     }
   ],
   "Germans": [
-    {
-      "name": "Civilization",
-      "description": "Technology tree"
-    },
-    {
-      "name": "Civilization",
-      "description": "Technology tree"
-    },
-    {
-      "name": "Home City Cards",
-      "description": "Dialogue lines"
-    },
     {
       "name": "1 Settler Wagon",
       "description": "Ships 1 Settler Wagon",
@@ -2442,34 +2406,6 @@
     }
   ],
   "Russians": [
-    {
-      "name": "Civilization",
-      "description": "Technology tree"
-    },
-    {
-      "name": "Civilization",
-      "description": "Technology tree"
-    },
-    {
-      "name": "Home City Cards",
-      "description": "Dialogue lines"
-    },
-    {
-      "name": "Some cards are highlighted with:",
-      "description": ""
-    },
-    {
-      "name": "Green",
-      "description": "TEAM Shipment that is sent to each player in a team"
-    },
-    {
-      "name": "Purple",
-      "description": "Shipment that can be sent an INFINITE number of times"
-    },
-    {
-      "name": "Red",
-      "description": "Shipment that can be sent TWICE"
-    },
     {
       "name": "Crates of 300 Food",
       "description": "Ships 300 food",
@@ -3303,18 +3239,6 @@
   ],
   "French": [
     {
-      "name": "Civilization",
-      "description": "Technology tree"
-    },
-    {
-      "name": "Civilization",
-      "description": "Technology tree"
-    },
-    {
-      "name": "Home City Cards",
-      "description": "Dialogue lines"
-    },
-    {
       "name": "2 Coureurs",
       "description": "Ships 2 Coureurs des Bois",
       "image": "/assets/cards/French/2_Coureurs.png"
@@ -4081,18 +4005,6 @@
     }
   ],
   "Ottomans": [
-    {
-      "name": "Civilization",
-      "description": "Technology tree"
-    },
-    {
-      "name": "Civilization",
-      "description": "Technology tree"
-    },
-    {
-      "name": "Home City Cards",
-      "description": "Dialogue lines"
-    },
     {
       "name": "2 Yörüks",
       "description": "Ships 2 Yörüks",
@@ -4911,18 +4823,6 @@
   ],
   "Portuguese": [
     {
-      "name": "Civilization",
-      "description": "Technology tree"
-    },
-    {
-      "name": "Civilization",
-      "description": "Technology tree"
-    },
-    {
-      "name": "Home City Cards",
-      "description": "Dialogue lines"
-    },
-    {
       "name": "Crates of 300 Food",
       "description": "Ships 300 food",
       "image": "/assets/cards/Portuguese/Crates_of_300_Food.png"
@@ -5699,18 +5599,6 @@
     }
   ],
   "Spanish": [
-    {
-      "name": "Civilization",
-      "description": "Technology tree"
-    },
-    {
-      "name": "Civilization",
-      "description": "Technology tree"
-    },
-    {
-      "name": "Home City Cards",
-      "description": "Dialogue lines"
-    },
     {
       "name": "2 Settlers",
       "description": "Ships 2 Settlers",
