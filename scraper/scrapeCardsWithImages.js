@@ -43,31 +43,79 @@ async function downloadImage(url, civ, filename) {
   }
 }
 
+function romanToNumber(roman) {
+  const map = { I: 1, II: 2, III: 3, IV: 4, V: 5 };
+  return map[roman] || null;
+}
+
 async function scrapeCiv(civ) {
   const url = `${BASE_URL}${civUrls[civ]}`;
   console.log(`🔗 Scraping ${civ}`);
 
   try {
-    const { data } = await axios.get(url);
+    const { data } = await axios.get(url, {
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36",
+      },
+    });
+
     const $ = cheerio.load(data);
 
     const cards = [];
 
     $(".wikitable tbody tr").each((_, el) => {
-      const name = $(el).find("td:nth-child(1)").text().trim();
-      const description = $(el).find("td:nth-child(2)").text().trim();
-      const imgEl = $(el).find("td:nth-child(1) img");
+      const cells = $(el).find("td");
+      if (!cells.length) return;
 
-      // IMPORTANT: fandom stores high-res images in data-src
+      // --- NAME + IMAGE ---
+      const firstCell = $(cells[0]);
+      const name = firstCell.text().trim();
+
+      const imgEl = firstCell.find("img");
       const imageUrl = imgEl.attr("data-src") || imgEl.attr("src");
 
-      if (name && imageUrl) {
-        cards.push({ name, description, imageUrl });
-      }
+      if (!name) return;
+
+      // --- AGE (text OR icon alt/title) ---
+      let age = null;
+
+      cells.each((_, cell) => {
+        const txt = $(cell).text();
+        const img = $(cell).find("img");
+
+        if (/Age/i.test(txt)) {
+          const roman = txt.replace(/[^IVX]/gi, "");
+          age = romanToNumber(roman);
+        }
+
+        if (img.length) {
+          const alt = img.attr("alt") || img.attr("title") || "";
+          if (/Age/i.test(alt)) {
+            const roman = alt.replace(/[^IVX]/gi, "");
+            age = romanToNumber(roman);
+          }
+        }
+      });
+
+      // --- DESCRIPTION (longest cell text) ---
+      let description = "";
+      cells.each((_, cell) => {
+        const text = $(cell).text().trim();
+        if (text.length > description.length) {
+          description = text;
+        }
+      });
+
+      cards.push({ name, age, description, imageUrl });
     });
 
     for (const card of cards) {
-      const ext = path.extname(card.imageUrl).split("?")[0] || ".png";
+      // const ext = path.extname(card.imageUrl).split("?")[0] || ".png";
+      if (!card.imageUrl) continue;
+
+      const ext = path.extname(card.imageUrl.split("?")[0]) || ".png";
+
       const filename = `${card.name.replace(/[^a-z0-9]/gi, "_")}${ext}`;
 
       const webPath = await downloadImage(card.imageUrl, civ, filename);
@@ -79,7 +127,7 @@ async function scrapeCiv(civ) {
     allCards[civ] = cards;
     console.log(`✅ ${civ}: ${cards.length} cards`);
   } catch (err) {
-    console.error(`❌ Failed ${civ}`);
+    console.error(`❌ Failed ${civ}:`, err.response?.status || err.message);
   }
 }
 
