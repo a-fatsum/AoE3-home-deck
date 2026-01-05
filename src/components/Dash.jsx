@@ -3,10 +3,13 @@ import SelectedDeckWindow from "./SelectedDeckWindow";
 
 export default function Dash({
   handleCivSelection,
-  OttomansData,
+  selectedCivData,
   selectedCiv,
   civilizations,
 }) {
+  const cards = selectedCivData?.cards || [];
+  const flag = selectedCivData?.flag;
+  //
   return (
     <div className="h-screen w-screen bg-[#1a120b] text-[#f5e6b8] p-6 font-serif">
       {/* Main Frame */}
@@ -50,9 +53,14 @@ export default function Dash({
           >
             {/* Header Bar */}
             <div className="border-b border-[#c9a24d] pb-2 mb-4 flex items-center justify-between">
-              <h2 className="text-xl tracking-wide">
-                {selectedCiv || "Civilization Deck"}
-              </h2>
+              {/* FLAG */}
+              <div>
+                <h2 className="text-xl tracking-wide">
+                  {selectedCiv || "Civilization Deck"}
+                </h2>
+                <img className="w-12 h-12" src={flag} alt={selectedCiv} />
+              </div>
+
               <span className="text-sm text-[#c9a24d] uppercase tracking-widest">
                 Home City
               </span>
@@ -63,7 +71,7 @@ export default function Dash({
               className="h-full overflow-y-auto pr-2
                             scrollbar-thin scrollbar-thumb-[#c9a24d]/60 scrollbar-track-transparent"
             >
-              <SelectedDeckWindow OttomansData={OttomansData} />
+              <SelectedDeckWindow cards={cards} />
             </div>
           </section>
 

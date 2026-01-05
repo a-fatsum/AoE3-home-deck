@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import CivSelector from "./components/CivSelector";
 import Dash from "./components/Dash";
 import data from "./data/allCards.json" with { type: "json" };
@@ -14,25 +14,19 @@ function App() {
     "Portuguese",
     "Russians",
     "Spanish",
-  
   ];
 
   // TASKS:
   // ☑️ Render the ottoman cards when Ottomans are selected.. Just do that..
-  // -> create 
-// 
+  // ➠ Render celected civs cards 
+
   const [selectedCiv, setSelectedCiv] = useState("");
 
-  const OttomansData = (()=>{
-    const ottomanCards = data.Ottomans
-    
-    return ottomanCards;
-  })();
+  const selectedCivData = selectedCiv ? data[selectedCiv] : null;
+
 
   function handleCivSelection(civ) {
-    // setSelectedCiv(e.target.value);
-    setSelectedCiv(civ);
-    console.log("Ottoman Cards", OttomansData[0].name)
+    setSelectedCiv(civ);    
   }
 
   //
@@ -40,16 +34,12 @@ function App() {
     <>
       <Dash 
       handleCivSelection={handleCivSelection}
-      OttomansData = {OttomansData}
+      selectedCivAvailableCards = {selectedCivData}
       selectedCiv = {selectedCiv}
       civilizations ={civilizations}
+      selectedCivData={selectedCivData}
       />
 
-      {/* <CivSelector
-        handleCivSelection={handleCivSelection}
-        selectedCiv={selectedCiv}
-        civilizations={civilizations}
-      /> */}
     </>
   );
 }
