@@ -58,7 +58,7 @@ export default function Dash({
                 <h2 className="text-xl tracking-wide">
                   {selectedCiv || "Civilization Deck"}
                 </h2>
-                <img className="w-12 h-12" src={flag} alt={selectedCiv} />
+                <img className="w-18 h-12" src={flag} alt={selectedCiv} />
               </div>
 
               <span className="text-sm text-[#c9a24d] uppercase tracking-widest">
