@@ -30,7 +30,6 @@ function App() {
   }
 
   function showCardsByAge(age){
-
     console.log("🌎")
   }
 
