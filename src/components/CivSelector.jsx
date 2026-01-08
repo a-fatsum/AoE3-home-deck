@@ -2,6 +2,7 @@ export default function CivSelector({
   handleCivSelection,
   selectedCiv,
   civilizations,
+  showCardsByAge,
 }) {
   return (
     <div className=" ">
@@ -25,7 +26,13 @@ export default function CivSelector({
       {/* Age selections */}
 
       <div>
-        <input type="radio" id="age1" name="age" value="Age1" />
+        <input
+          type="radio"
+          id="age1"
+          name="age"
+          onChange={showCardsByAge}
+          value="Age1"
+        />
         <label htmlFor="age1"> I: Exploration Age</label>
         <br />
         <input type="radio" id="age2" name="age" value="Age2" />

@@ -21,7 +21,7 @@ function App() {
   // ➠ Render celected civs cards 
 
   const [selectedCiv, setSelectedCiv] = useState("");
-
+  const [selectedAge, setSelectedAge] = useState("");
   const selectedCivData = selectedCiv ? data[selectedCiv] : null;
 
 
@@ -29,15 +29,24 @@ function App() {
     setSelectedCiv(civ);    
   }
 
-  //
+  function showCardsByAge(age){
+
+    console.log("🌎")
+  }
+
+  function selectAge(age) {
+    setSelectedAge(age)
+  }
+  // 
   return (
     <>
       <Dash 
       handleCivSelection={handleCivSelection}
-      selectedCivAvailableCards = {selectedCivData}
       selectedCiv = {selectedCiv}
       civilizations ={civilizations}
       selectedCivData={selectedCivData}
+      showCardsByAge={showCardsByAge}
+      selectedAge ={selectedAge}
       />
 
     </>

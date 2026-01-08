@@ -6,6 +6,8 @@ export default function Dash({
   selectedCivData,
   selectedCiv,
   civilizations,
+  selectedAge,
+  showCardsByAge,
 }) {
   const cards = selectedCivData?.cards || [];
   const flag = selectedCivData?.flag;
@@ -40,6 +42,8 @@ export default function Dash({
             <CivSelector
               handleCivSelection={handleCivSelection}
               civilizations={civilizations}
+              showCardsByAge={showCardsByAge}
+              selectedAge={selectedAge}
             />
           </div>
         </aside>
