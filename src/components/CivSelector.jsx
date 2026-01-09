@@ -2,13 +2,11 @@ export default function CivSelector({
   handleCivSelection,
   selectedCiv,
   civilizations,
-  showCardsByAge,
+  cardsByAge,
   selectAge,
 }) {
   function doTheThing(e) {
-    selectAge(e.target.value);
-    const x = showCardsByAge();
-    console.log("❎", x);
+    selectAge(Number(e.target.value));
   }
 
   //
@@ -34,24 +32,16 @@ export default function CivSelector({
       {/* Age selections */}
 
       <div>
-        <input
-          type="radio"
-          id="age1"
-          name="age"
-          onChange={(e) => doTheThing(e)}
-          value={1}
-        />
-        <label htmlFor="age1"> I: Exploration Age</label>
-        <br />
-        <input type="radio" id="age2" name="age" value={2} />
-        <label htmlFor="age2"> II: Commerce Age</label>
-        <br />
-        <input type="radio" id="age3" name="age" value={3} />
-        <label htmlFor="age3">III: Fortress Age</label>
-        <br />
-        <input type="radio" id="age4" name="age" value={4} />
-        <label htmlFor="age4"> V: Industerial Age</label>
-        <br />
+        <h4>Select Age:</h4>
+        <select onChange={(e) => doTheThing(e)} defaultValue="">
+          <option value="" disabled>
+            -- Select an Age --
+          </option>
+          <option value={1}>I: Exploration Age</option>
+          <option value={2}>II: Commerce Age</option>
+          <option value={3}>III: Fortress Age</option>
+          <option value={4}>V: Industrial Age</option>
+        </select>
       </div>
     </div>
   );

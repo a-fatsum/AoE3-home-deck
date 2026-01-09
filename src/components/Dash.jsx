@@ -7,11 +7,12 @@ export default function Dash({
   selectedCiv,
   civilizations,
   selectedAge,
-  showCardsByAge,
+  cardsByAge,
 
   selectAge,
 }) {
   const cards = selectedCivData?.cards || [];
+  // console.log("🔄", cards.length);
 
   // const selectedCivCards = selectedCivData?.cards || [];
   // const cards = selectedCivCards.cards.filter(
@@ -51,7 +52,7 @@ export default function Dash({
             <CivSelector
               handleCivSelection={handleCivSelection}
               civilizations={civilizations}
-              showCardsByAge={showCardsByAge}
+              cardsByAge={cardsByAge}
               selectedAge={selectedAge}
               selectAge={selectAge}
             />

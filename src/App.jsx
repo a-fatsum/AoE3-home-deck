@@ -25,16 +25,23 @@ function App() {
   function handleCivSelection(civ) {
     setSelectedCiv(civ);
   }
-  function showCardsByAge() {
-    if (!selectedCiv) return [];
-    // const cardsByAge = data[selectedCiv].cards.filter(
-    //   (card) => card.selectedAge === selectedAge
-    // );
-    // return cardsByAge;
-    return data[selectedCiv].cards.filter(
-      (card) => card.selectedAge === selectedAge
+
+  const cardsByAge = useMemo(() => {
+    if (!selectedCiv || !selectedAge) return [];
+    // test
+    const x = data[selectedCiv].cards.filter(
+      (card) => card.age === selectedAge
     );
-  }
+    console.log("🪵", x);
+    //
+    return data[selectedCiv].cards.filter((card) => card.age === selectedAge);
+  }, [data, selectedCiv, selectedAge]);
+
+  // function showCardsByAge() {
+  //   if (!selectedCiv) return [];
+  //   return data[selectedCiv].cards.filter((card) => card.age === selectedAge);
+  // }
+
   function selectAge(age) {
     setSelectedAge(age);
     console.log("selectedAge 🎁", selectedAge);
@@ -48,7 +55,7 @@ function App() {
         selectedCiv={selectedCiv}
         civilizations={civilizations}
         selectedCivData={selectedCivData}
-        showCardsByAge={showCardsByAge}
+        cardsByAge={cardsByAge}
         selectedAge={selectedAge}
         selectAge={selectAge}
       />
