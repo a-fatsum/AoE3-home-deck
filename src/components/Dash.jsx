@@ -8,12 +8,21 @@ export default function Dash({
   civilizations,
   selectedAge,
   showCardsByAge,
+
+  selectAge,
 }) {
   const cards = selectedCivData?.cards || [];
+
+  // const selectedCivCards = selectedCivData?.cards || [];
+  // const cards = selectedCivCards.cards.filter(
+  //   (card) => card.selectedAge === selectedAge
+  // );
+
   const flag = selectedCivData?.flag;
+
   //
   return (
-    <div className="h-screen w-screen bg-[#1a120b] text-[#f5e6b8] p-6 font-serif">
+    <div className=" bg-[#1a120b] text-[#f5e6b8] p-6 font-serif">
       {/* Main Frame */}
       <div className="h-full grid grid-cols-12 gap-6 border-4 border-[#c9a24d] bg-[#2b1d12] p-4 shadow-2xl">
         {/* LEFT PANEL – Civ Selection */}
@@ -44,6 +53,7 @@ export default function Dash({
               civilizations={civilizations}
               showCardsByAge={showCardsByAge}
               selectedAge={selectedAge}
+              selectAge={selectAge}
             />
           </div>
         </aside>
