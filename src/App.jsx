@@ -18,16 +18,28 @@ function App() {
 
   const [selectedCiv, setSelectedCiv] = useState(civilizations[0]);
   const [selectedAge, setSelectedAge] = useState("");
+  const [deckList, setDeckList] = useState([]);
   const selectedCivData = selectedCiv ? data[selectedCiv] : null;
 
   function handleCivSelection(civ) {
     setSelectedCiv(civ);
   }
 
-  const cardsByAge = useMemo(() => {
+  // Inventory Cards selected by age and civ
+  const inventoryCardsByAge = useMemo(() => {
     if (!selectedCiv || !selectedAge) return [];
     return data[selectedCiv].cards.filter((card) => card.age === selectedAge);
   }, [data, selectedCiv, selectedAge]);
+
+  function createDeck() {
+    const deck = [];
+    console.log("🍁 📥 ✅ ♣️ ♥️ ♦️ ♠️ ", deckList);
+  }
+
+  function addOrRemoveCardFromDeck(card) {
+    // const
+    inventoryCardsByAge.include(card) ? "includes" : "Does NOT Include <-X->";
+  }
 
   function selectAge(age) {
     setSelectedAge(age);
@@ -41,9 +53,11 @@ function App() {
         selectedCiv={selectedCiv}
         civilizations={civilizations}
         selectedCivData={selectedCivData}
-        cardsByAge={cardsByAge}
+        inventoryCardsByAge={inventoryCardsByAge}
         selectedAge={selectedAge}
         selectAge={selectAge}
+        createDeck={createDeck}
+        addOrRemoveCardFromDeck={addOrRemoveCardFromDeck}
       />
     </>
   );

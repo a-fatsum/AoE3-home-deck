@@ -1,8 +1,14 @@
-export default function Card({ name, description, image }) {
+export default function Card({
+  name,
+  description,
+  image,
+  addOrRemoveCardFromDeck,
+}) {
   return (
     <div
       className="w-30 bg-[#2b1d12] border-2 border-[#c9a24d] rounded-md shadow-lg overflow-hidden
                     hover:scale-[1.03] hover:shadow-2xl transition-all duration-200"
+      onClick={addOrRemoveCardFromDeck}
     >
       {/* Image Frame */}
       <div className="h-24 bg-[#1a120b] border-b-2 border-[#c9a24d] flex items-center justify-center p-3">
