@@ -1,5 +1,6 @@
 import CivSelector from "./CivSelector";
 import SelectedDeckWindow from "./SelectedDeckWindow";
+import CardsInventory from "./CardsInventory";
 
 export default function Dash({
   handleCivSelection,
@@ -11,17 +12,7 @@ export default function Dash({
 
   selectAge,
 }) {
-  // const cards = selectedCivData?.cards || [];
-  const cards = cardsByAge;
-  // console.log("🔄", cards.length);
-
-  // const selectedCivCards = selectedCivData?.cards || [];
-  // const cards = selectedCivCards.cards.filter(
-  //   (card) => card.selectedAge === selectedAge
-  // );
-
   const flag = selectedCivData?.flag;
-
   //
   return (
     <div className=" bg-[#1a120b] text-[#f5e6b8] p-6 font-serif">
@@ -47,11 +38,9 @@ export default function Dash({
             className="bg-gradient-to-b from-[#3a2617] to-[#24160d]
                           border-2 border-[#c9a24d] rounded-md p-4"
           >
-            <h3 className="text-[#c9a24d] text-sm tracking-widest uppercase mb-3">
-              Civilizations
-            </h3>
             <CivSelector
               handleCivSelection={handleCivSelection}
+              selectedCiv={selectedCiv}
               civilizations={civilizations}
               cardsByAge={cardsByAge}
               selectedAge={selectedAge}
@@ -87,7 +76,7 @@ export default function Dash({
               className="h-full overflow-y-auto pr-2
                             scrollbar-thin scrollbar-thumb-[#c9a24d]/60 scrollbar-track-transparent"
             >
-              <SelectedDeckWindow cards={cards} />
+              <SelectedDeckWindow />
             </div>
           </section>
 
@@ -96,21 +85,7 @@ export default function Dash({
             className="h-24 bg-gradient-to-b from-[#3a2617] to-[#24160d]
                               border-2 border-[#c9a24d] rounded-md flex items-center justify-center gap-6"
           >
-            <button
-              className="px-6 py-2 bg-[#c9a24d] text-[#1a120b]
-                               font-semibold tracking-wide rounded
-                               hover:bg-[#e0b85f] transition"
-            >
-              Save Deck
-            </button>
-
-            <button
-              className="px-6 py-2 border border-[#c9a24d]
-                               text-[#f5e6b8] tracking-wide rounded
-                               hover:bg-[#c9a24d]/10 transition"
-            >
-              Reset
-            </button>
+            <CardsInventory selectedAge={selectedAge} cardsByAge={cardsByAge} />
           </section>
         </main>
       </div>
