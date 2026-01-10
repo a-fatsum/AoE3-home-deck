@@ -11,7 +11,8 @@ export default function Dash({
 
   selectAge,
 }) {
-  const cards = selectedCivData?.cards || [];
+  // const cards = selectedCivData?.cards || [];
+  const cards = cardsByAge;
   // console.log("🔄", cards.length);
 
   // const selectedCivCards = selectedCivData?.cards || [];

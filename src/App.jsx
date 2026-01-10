@@ -37,11 +37,6 @@ function App() {
     return data[selectedCiv].cards.filter((card) => card.age === selectedAge);
   }, [data, selectedCiv, selectedAge]);
 
-  // function showCardsByAge() {
-  //   if (!selectedCiv) return [];
-  //   return data[selectedCiv].cards.filter((card) => card.age === selectedAge);
-  // }
-
   function selectAge(age) {
     setSelectedAge(age);
     console.log("selectedAge 🎁", selectedAge);

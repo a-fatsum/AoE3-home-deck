@@ -1,7 +1,7 @@
 export default function Card({ name, description, image }) {
   return (
     <div
-      className="w-56 bg-[#2b1d12] border-2 border-[#c9a24d] rounded-md shadow-lg overflow-hidden
+      className="w-48 bg-[#2b1d12] border-2 border-[#c9a24d] rounded-md shadow-lg overflow-hidden
                     hover:scale-[1.03] hover:shadow-2xl transition-all duration-200"
     >
       {/* Image Frame */}
