@@ -1,6 +1,7 @@
 import CivSelector from "./CivSelector";
 import SelectedDeckWindow from "./SelectedDeckWindow";
 import CardsInventory from "./CardsInventory";
+import Button from "./Button";
 
 export default function Dash({
   handleCivSelection,
@@ -31,6 +32,14 @@ export default function Dash({
             <p className="text-sm text-[#e3d3a1] opacity-80">
               Select a civilization and manage your deck.
             </p>
+          </div>
+
+          {/* Buttons -> CREATE | SAVE | DELETE | COPY */}
+          <div className="grid grid-cols-2">
+            <Button label={"create"} />
+            <Button label={"save"} />
+            <Button label={"delete"} />
+            <Button label={"copy"} />
           </div>
 
           {/* Bottom Left – Civ Selector */}
@@ -82,7 +91,7 @@ export default function Dash({
 
           {/* Bottom Right – Action Bar */}
           <section
-            className="h-24 bg-gradient-to-b from-[#3a2617] to-[#24160d]
+            className="min-h-46 bg-gradient-to-b from-[#3a2617] to-[#24160d]
                               border-2 border-[#c9a24d] rounded-md flex items-center justify-center gap-6"
           >
             <CardsInventory selectedAge={selectedAge} cardsByAge={cardsByAge} />
