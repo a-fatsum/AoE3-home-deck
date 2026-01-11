@@ -11,8 +11,9 @@ export default function Dash({
   selectedAge,
   inventoryCardsByAge,
   selectAge,
-  createDeck,
+  createNewDeck,
   addOrRemoveCardFromDeck,
+  deckList,
 }) {
   const flag = selectedCivData?.flag;
   //
@@ -37,7 +38,7 @@ export default function Dash({
 
           {/* Buttons -> CREATE | SAVE | DELETE | COPY */}
           <div className="grid grid-cols-2">
-            <Button label={"create"} onClick={createDeck} />
+            <Button label={"create"} onClick={createNewDeck} />
             <Button label={"save"} />
             <Button label={"delete"} />
             <Button label={"copy"} />
@@ -86,7 +87,7 @@ export default function Dash({
               className="h-full overflow-y-auto pr-2
                             scrollbar-thin scrollbar-thumb-[#c9a24d]/60 scrollbar-track-transparent"
             >
-              <SelectedDeckWindow />
+              <SelectedDeckWindow deckList={deckList} />
             </div>
           </section>
 
@@ -98,7 +99,7 @@ export default function Dash({
             <CardsInventory
               selectedAge={selectedAge}
               inventoryCardsByAge={inventoryCardsByAge}
-              createDeck={createDeck}
+              createNewDeck={createNewDeck}
               addOrRemoveCardFromDeck={addOrRemoveCardFromDeck}
             />
           </section>
