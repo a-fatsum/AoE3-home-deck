@@ -11,7 +11,7 @@ export default function Deck({ deckName, numberOfCards, onClick }) {
         flex items-center justify-between
         p-3 rounded-md font-serif
         cursor-pointer
-        transition-all duration-200
+        transition-all duration-200s
         hover:bg-[#3a2617]
       `}
     >

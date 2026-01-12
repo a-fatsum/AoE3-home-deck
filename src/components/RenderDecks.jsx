@@ -1,6 +1,12 @@
 import Deck from "./Deck";
 
-export default function RenderDecks({ allDecks, setSelectedDeckId }) {
+export default function RenderDecks({
+  allDecks,
+  setSelectedDeckId,
+  selectedCiv,
+}) {
+  // Filter decks by selected civilization
+  const filteredDecks = allDecks.filter((deck) => deck.civ === selectedCiv);
   return (
     <>
       <div
@@ -13,7 +19,7 @@ export default function RenderDecks({ allDecks, setSelectedDeckId }) {
         </h3>
 
         {/* Render decks */}
-        {allDecks.map((deck, index) => (
+        {filteredDecks.map((deck, index) => (
           <Deck
             key={index}
             deckName={deck.name}

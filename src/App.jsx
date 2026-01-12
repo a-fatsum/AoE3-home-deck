@@ -66,10 +66,58 @@ function App() {
   const selectedDeck = allDecks.find((deck) => deck.id === selectedDeckId);
 
   function addOrRemoveCardFromDeck(card) {
-    selectedDeck.cards.push(card);
-    console.log("DECK -> 💪 ", selectedDeck.cards);
+    setAllDecks((prevDecks) => {
+      return prevDecks.map((deck) => {
+        if (deck.id !== selectedDeckId) {
+          return deck;
+        }
+        const cardAlreadyInDeck = deck.cards.some(
+          (deckCard) => deckCard.name === card.name
+        );
+        let updatedCards = [];
+        if (cardAlreadyInDeck) {
+          // Remove card
+          updatedCards = deck.cards.filter(
+            (deckCard) => deckCard.name !== card.name
+          );
+        } else {
+          // Add card
+          updatedCards = [...deck.cards, card];
+        }
+        // Return a new deck object
+        return {
+          ...deck,
+          cards: updatedCards,
+        };
+      });
+    });
+    console.log("selectedDeck =>>.>>", selectedDeck);
   }
 
+  //================================
+  // function addOrRemoveCardFromDeck(card) {
+  //   if (!selectedDeck) {
+  //     console.log("No deck selected!");
+  //     return;
+  //   }
+  //   const isCardInDeck = selectedDeck.cards.some(
+  //     (deckCard) => deckCard.name === card.name
+  //   );
+  //   // Remove Card
+  //   if (isCardInDeck) {
+  //     selectedDeck.cards = selectedDeck.cards.filter(
+  //       (deckCard) => deckCard.name !== card.name
+  //     );
+  //     console.log("DECK -> selectedDeck cards ❌ ", selectedDeck.cards);
+  //     return;
+  //   }
+  //   // Add Card
+  //   selectedDeck.cards.push(card);
+  //   console.log("DECK -> selectedDeck cards 💪 ", selectedDeck.cards);
+  //   console.log("DECK -> selectedDeck ID 💪 🆔", selectedDeck.id);
+  // }
+
+  // ================================
   //
   function selectAge(age) {
     setSelectedAge(age);
@@ -92,6 +140,7 @@ function App() {
         setDeckName={setDeckName}
         allDecks={allDecks}
         setSelectedDeckId={setSelectedDeckId}
+        selectedDeck={selectedDeck}
       />
     </>
   );

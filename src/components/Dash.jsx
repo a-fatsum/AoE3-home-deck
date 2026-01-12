@@ -21,6 +21,7 @@ export default function Dash({
   setDeckName,
   allDecks,
   setSelectedDeckId,
+  selectedDeck,
 }) {
   const flag = selectedCivData?.flag;
 
@@ -48,6 +49,7 @@ export default function Dash({
           <RenderDecks
             allDecks={allDecks}
             setSelectedDeckId={setSelectedDeckId}
+            selectedCiv={selectedCiv}
           />
 
           {/* =================================================== */}
@@ -134,7 +136,12 @@ export default function Dash({
               className="h-full overflow-y-auto pr-2
                             scrollbar-thin scrollbar-thumb-[#c9a24d]/60 scrollbar-track-transparent"
             >
-              <SelectedDeckWindow deckList={deckList} />
+              <SelectedDeckWindow
+                deckList={deckList}
+                allDecks={allDecks}
+                selectedDeck={selectedDeck}
+                selectedCiv={selectedCiv}
+              />
             </div>
           </section>
 
