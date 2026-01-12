@@ -1,8 +1,6 @@
 import { useState, useMemo } from "react";
-import CivSelector from "./components/CivSelector";
 import Dash from "./components/Dash";
 import data from "./data/allCards.json";
-import SelectedDeckWindow from "./components/SelectedDeckWindow";
 
 function App() {
   const civilizations = [
@@ -21,6 +19,14 @@ function App() {
   const [deckList, setDeckList] = useState([]);
   const [listOfAllDecks, setListOfAllDecks] = useState({});
   const [selectedCard, setSelectedCard] = useState();
+  const [deckName, setDeckName] = useState("");
+
+  //
+  function createNewDeck(name) {
+    setDeckName(name);
+
+    console.log("Deck Name ", deckName);
+  }
 
   const selectedCivData = selectedCiv ? data[selectedCiv] : null;
 
@@ -34,14 +40,14 @@ function App() {
     return data[selectedCiv].cards.filter((card) => card.age === selectedAge);
   }, [data, selectedCiv, selectedAge]);
 
-  function createNewDeck() {
-    setListOfAllDecks({
-      ...listOfAllDecks,
-      [selectedCiv]: deckList,
-    });
-    console.log("New Deck Created 🃏", listOfAllDecks);
-    // setDeckList([]);
-  }
+  // function createNewDeck() {
+  //   setListOfAllDecks({
+  //     ...listOfAllDecks,
+  //     [selectedCiv]: deckList,
+  //   });
+  //   console.log("New Deck Created 🃏", listOfAllDecks);
+  //   // setDeckList([]);
+  // }
 
   function addOrRemoveCardFromDeck(card) {
     const isCardInDeck = deckList.some(
@@ -74,6 +80,7 @@ function App() {
         createNewDeck={createNewDeck}
         addOrRemoveCardFromDeck={addOrRemoveCardFromDeck}
         deckList={deckList}
+        setDeckName={setDeckName}
       />
     </>
   );

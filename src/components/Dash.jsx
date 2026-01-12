@@ -1,7 +1,10 @@
+import { useState } from "react";
+import { Modal, Box } from "@mui/material";
 import CivSelector from "./CivSelector";
 import SelectedDeckWindow from "./SelectedDeckWindow";
 import CardsInventory from "./CardsInventory";
 import Button from "./Button";
+import AddDeck from "./AddDeck";
 
 export default function Dash({
   handleCivSelection,
@@ -14,8 +17,18 @@ export default function Dash({
   createNewDeck,
   addOrRemoveCardFromDeck,
   deckList,
+  setDeckName,
 }) {
   const flag = selectedCivData?.flag;
+
+  const [showModal, setShowModal] = useState(false);
+  function renderModal() {
+    setShowModal(true);
+  }
+
+  const handleClose = () => {
+    setShowModal(false);
+  };
   //
   return (
     <div className=" bg-[#1a120b] text-[#f5e6b8] p-6 font-serif">
@@ -35,10 +48,41 @@ export default function Dash({
               Select a civilization and manage your deck.
             </p>
           </div>
+          {/* =================================================== */}
+
+          {/* Pop up */}
+          <div>
+            <Modal open={showModal} onClose={handleClose}>
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  // bgcolor: "#333533",
+                  boxShadow: 24,
+                  p: 3,
+                  borderRadius: 2,
+                  minWidth: 350,
+                }}
+              >
+                <AddDeck
+                  // createNewDeck={createNewDeck}
+                  setDeckName={setDeckName}
+                  handleClose={handleClose}
+                />
+              </Box>
+            </Modal>
+          </div>
 
           {/* Buttons -> CREATE | SAVE | DELETE | COPY */}
           <div className="grid grid-cols-2">
-            <Button label={"create"} onClick={createNewDeck} />
+            <Button
+              label={"create"}
+              onClick={() => {
+                createNewDeck(), renderModal();
+              }}
+            />
             <Button label={"save"} />
             <Button label={"delete"} />
             <Button label={"copy"} />
