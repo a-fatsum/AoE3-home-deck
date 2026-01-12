@@ -1,6 +1,6 @@
 import Deck from "./Deck";
 
-export default function RenderDecks({ allDecks }) {
+export default function RenderDecks({ allDecks, setSelectedDeckId }) {
   return (
     <>
       <div
@@ -13,8 +13,13 @@ export default function RenderDecks({ allDecks }) {
         </h3>
 
         {/* Render decks */}
-        {allDecks.map((deck) => (
-          <Deck deckName={deck.name} numberOfCards={deck.cards.length} />
+        {allDecks.map((deck, index) => (
+          <Deck
+            key={index}
+            deckName={deck.name}
+            numberOfCards={deck.cards.length}
+            onClick={() => setSelectedDeckId(deck.id)}
+          />
         ))}
       </div>
     </>

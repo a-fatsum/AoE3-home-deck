@@ -20,6 +20,7 @@ export default function Dash({
   deckList,
   setDeckName,
   allDecks,
+  setSelectedDeckId,
 }) {
   const flag = selectedCivData?.flag;
 
@@ -32,6 +33,8 @@ export default function Dash({
     setShowModal(false);
   };
 
+  const numberOfDecks = allDecks.length;
+
   //
   return (
     <div className=" bg-[#1a120b] text-[#f5e6b8] p-6 font-serif">
@@ -41,7 +44,11 @@ export default function Dash({
         <aside className="col-span-3 flex flex-col gap-4">
           {/* Top Left Panel */}
 
-          <RenderDecks allDecks={allDecks} />
+          {/* RENDER DECKS */}
+          <RenderDecks
+            allDecks={allDecks}
+            setSelectedDeckId={setSelectedDeckId}
+          />
 
           {/* =================================================== */}
 
@@ -117,7 +124,8 @@ export default function Dash({
               </div>
 
               <span className="text-sm text-[#c9a24d] uppercase tracking-widest">
-                Home City
+                Number of Decks:{" "}
+                <span className="text-lg">{numberOfDecks}</span>
               </span>
             </div>
 

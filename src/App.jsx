@@ -20,6 +20,7 @@ function App() {
   const [allDecks, setAllDecks] = useState([]);
   const [selectedCard, setSelectedCard] = useState();
   const [deckName, setDeckName] = useState("");
+  const [selectedDeckId, setSelectedDeckId] = useState("");
 
   const selectedCivData = selectedCiv ? data[selectedCiv] : null;
 
@@ -41,26 +42,35 @@ function App() {
       cards: [],
     };
     setAllDecks((prev) => [...prev, newDeck]);
-    setDeckList([]); // <------------ empty deck for new creation
+    // setDeckList([]); // <------------ empty deck for new creation
     setDeckName(name);
     //
     console.log("🃏 New Deck Created:", newDeck);
+    console.log("🙏 Deck list: ", allDecks);
   }
 
   //
+  // function addOrRemoveCardFromDeck(card) {
+  //   const isCardInDeck = deckList.some(
+  //     (deckCard) => deckCard.name === card.name
+  //   );
+  //   if (isCardInDeck) {
+  //     setDeckList(deckList.filter((deckCard) => deckCard.name !== card.name));
+  //   } else {
+  //     setDeckList([...deckList, card]);
+  //   }
+  //   //
+  //   console.log("♠️ ♦️ ♣️ ♥️ ", deckList);
+  // }
+
+  const selectedDeck = allDecks.find((deck) => deck.id === selectedDeckId);
+
   function addOrRemoveCardFromDeck(card) {
-    const isCardInDeck = deckList.some(
-      (deckCard) => deckCard.name === card.name
-    );
-    if (isCardInDeck) {
-      setDeckList(deckList.filter((deckCard) => deckCard.name !== card.name));
-    } else {
-      setDeckList([...deckList, card]);
-    }
-    //
-    console.log("♠️ ♦️ ♣️ ♥️ ", deckList);
+    selectedDeck.cards.push(card);
+    console.log("DECK -> 💪 ", selectedDeck.cards);
   }
 
+  //
   function selectAge(age) {
     setSelectedAge(age);
     console.log("selectedAge 🎁", selectedAge);
@@ -81,6 +91,7 @@ function App() {
         deckList={deckList}
         setDeckName={setDeckName}
         allDecks={allDecks}
+        setSelectedDeckId={setSelectedDeckId}
       />
     </>
   );

@@ -1,11 +1,12 @@
 import { useState } from "react";
 
-export default function Deck({ deckName, numberOfCards }) {
-  const [selected, setSelected] = useState(false);
+export default function Deck({ deckName, numberOfCards, onClick }) {
+  //   const [selected, setSelected] = useState(false);
   //  ${selected ? "bg-[#4b341f]" : ""} <-------------- Add this stytle later
   return (
     <div
-      onClick={() => setSelected(true)}
+      //   onClick={() => setSelected(true)}
+      onClick={onClick}
       className={`
         flex items-center justify-between
         p-3 rounded-md font-serif
