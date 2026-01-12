@@ -4,12 +4,12 @@ export default function SelectedDeckWindow({ deckList }) {
   return (
     <>
       <div className="wrapper grid grid-cols-4 gap-4grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6  ">
-        {deckList.map((cardData, index) => (
+        {deckList.map((deckData, index) => (
           <Card
             key={index}
-            name={cardData.name}
-            description={cardData.description}
-            image={cardData.image}
+            name={deckData.name}
+            description={deckData.description}
+            image={deckData.image}
           />
         ))}
       </div>

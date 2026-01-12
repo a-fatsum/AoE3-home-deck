@@ -17,16 +17,9 @@ function App() {
   const [selectedCiv, setSelectedCiv] = useState(civilizations[0]);
   const [selectedAge, setSelectedAge] = useState("");
   const [deckList, setDeckList] = useState([]);
-  const [listOfAllDecks, setListOfAllDecks] = useState({});
+  const [allDecks, setAllDecks] = useState([]);
   const [selectedCard, setSelectedCard] = useState();
   const [deckName, setDeckName] = useState("");
-
-  //
-  function createNewDeck(name) {
-    setDeckName(name);
-
-    console.log("Deck Name ", deckName);
-  }
 
   const selectedCivData = selectedCiv ? data[selectedCiv] : null;
 
@@ -40,15 +33,21 @@ function App() {
     return data[selectedCiv].cards.filter((card) => card.age === selectedAge);
   }, [data, selectedCiv, selectedAge]);
 
-  // function createNewDeck() {
-  //   setListOfAllDecks({
-  //     ...listOfAllDecks,
-  //     [selectedCiv]: deckList,
-  //   });
-  //   console.log("New Deck Created 🃏", listOfAllDecks);
-  //   // setDeckList([]);
-  // }
+  function createNewDeck(name) {
+    const newDeck = {
+      id: Date.now(),
+      name,
+      civ: selectedCiv,
+      cards: [],
+    };
+    setAllDecks((prev) => [...prev, newDeck]);
+    setDeckList([]); // <------------ empty deck for new creation
+    setDeckName(name);
+    //
+    console.log("🃏 New Deck Created:", newDeck);
+  }
 
+  //
   function addOrRemoveCardFromDeck(card) {
     const isCardInDeck = deckList.some(
       (deckCard) => deckCard.name === card.name
@@ -81,6 +80,7 @@ function App() {
         addOrRemoveCardFromDeck={addOrRemoveCardFromDeck}
         deckList={deckList}
         setDeckName={setDeckName}
+        allDecks={allDecks}
       />
     </>
   );

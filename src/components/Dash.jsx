@@ -5,6 +5,7 @@ import SelectedDeckWindow from "./SelectedDeckWindow";
 import CardsInventory from "./CardsInventory";
 import Button from "./Button";
 import AddDeck from "./AddDeck";
+import RenderDecks from "./RenderDecks";
 
 export default function Dash({
   handleCivSelection,
@@ -18,6 +19,7 @@ export default function Dash({
   addOrRemoveCardFromDeck,
   deckList,
   setDeckName,
+  allDecks,
 }) {
   const flag = selectedCivData?.flag;
 
@@ -29,6 +31,7 @@ export default function Dash({
   const handleClose = () => {
     setShowModal(false);
   };
+
   //
   return (
     <div className=" bg-[#1a120b] text-[#f5e6b8] p-6 font-serif">
@@ -37,50 +40,42 @@ export default function Dash({
         {/* LEFT PANEL – Civ Selection */}
         <aside className="col-span-3 flex flex-col gap-4">
           {/* Top Left Panel */}
-          <div
-            className="flex-1 bg-gradient-to-b from-[#3a2617] to-[#24160d]
-                          border-2 border-[#c9a24d] rounded-md p-4"
-          >
-            <h3 className="text-[#c9a24d] text-sm tracking-widest uppercase mb-2">
-              Overview
-            </h3>
-            <p className="text-sm text-[#e3d3a1] opacity-80">
-              Select a civilization and manage your deck.
-            </p>
-          </div>
+
+          <RenderDecks allDecks={allDecks} />
+
           {/* =================================================== */}
 
           {/* Pop up */}
-          <div>
-            <Modal open={showModal} onClose={handleClose}>
-              <Box
-                sx={{
-                  position: "absolute",
-                  top: "50%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  // bgcolor: "#333533",
-                  boxShadow: 24,
-                  p: 3,
-                  borderRadius: 2,
-                  minWidth: 350,
-                }}
-              >
-                <AddDeck
-                  // createNewDeck={createNewDeck}
-                  setDeckName={setDeckName}
-                  handleClose={handleClose}
-                />
-              </Box>
-            </Modal>
-          </div>
+          <Modal open={showModal} onClose={handleClose}>
+            <Box
+              sx={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                // bgcolor: "#333533",
+                boxShadow: 24,
+                p: 3,
+                borderRadius: 2,
+                minWidth: 350,
+              }}
+            >
+              <AddDeck
+                createNewDeck={createNewDeck}
+                // x={e.taregt}
+                setDeckName={setDeckName}
+                handleClose={handleClose}
+              />
+            </Box>
+          </Modal>
 
           {/* Buttons -> CREATE | SAVE | DELETE | COPY */}
           <div className="grid grid-cols-2">
             <Button
               label={"create"}
               onClick={() => {
-                createNewDeck(), renderModal();
+                // createNewDeck(),
+                renderModal();
               }}
             />
             <Button label={"save"} />
@@ -143,7 +138,7 @@ export default function Dash({
             <CardsInventory
               selectedAge={selectedAge}
               inventoryCardsByAge={inventoryCardsByAge}
-              createNewDeck={createNewDeck}
+              // createNewDeck={createNewDeck}
               addOrRemoveCardFromDeck={addOrRemoveCardFromDeck}
             />
           </section>

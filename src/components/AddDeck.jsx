@@ -1,17 +1,80 @@
-export default function AddDeck({ createNewDeck, handleClose, setDeckName }) {
+// import Button from "./Button";
+
+// export default function AddDeck({ createNewDeck, handleClose, setDeckName }) {
+//   function handleCreateDeck(event) {
+//     const name = event.target.value;
+//     setDeckName(name);
+
+//     createNewDeck();
+//     handleClose();
+//   }
+//   return (
+//     <div
+//       className="
+//         w-80 p-4
+//         rounded-md
+//         border-2 border-[#c9a14a]
+//         bg-gradient-to-b from-[#2a1d12] to-[#1a120b]
+//         shadow-[inset_0_0_0_2px_#3b2a17,0_8px_24px_rgba(0,0,0,0.8)]
+//         font-serif
+//         text-sm
+//       "
+//     >
+//       <input
+//         type="text"
+//         placeholder="Enter Deck Name..."
+//         className="
+//           w-full
+//           px-3 py-2
+//           rounded
+//           font-serif text-base
+//           text-[#f5e6c8]
+
+//           bg-gradient-to-b from-[#3b2a17] to-[#2a1d12]
+//           border border-[#b89645]
+
+//           placeholder-[#cbb68a]/70
+
+//           shadow-[inset_0_1px_2px_rgba(0,0,0,0.8),0_0_6px_rgba(201,161,74,0.2)]
+
+//           outline-none
+//           transition-all duration-200
+
+//           focus:border-[#e6c76a]
+//           focus:shadow-[inset_0_1px_2px_rgba(0,0,0,0.9),0_0_10px_rgba(230,199,106,0.6)]
+//         "
+//       />
+
+//       <Button
+//         label={"Create Deck"}
+//         onClick={(e) => {
+//           handleCreateDeck(e);
+//         }}
+//       />
+//     </div>
+//   );
+// }
+
+import { useState } from "react";
+import Button from "./Button";
+
+export default function AddDeck({ createNewDeck, handleClose }) {
+  const [localDeckName, setLocalDeckName] = useState("");
+
+  function handleSubmit() {
+    if (!localDeckName.trim()) return;
+
+    createNewDeck(localDeckName);
+    handleClose();
+  }
+
   return (
-    <div
-      className="
-        w-80 p-4
-        rounded-md
-        border-2 border-[#c9a14a]
-        bg-gradient-to-b from-[#2a1d12] to-[#1a120b]
-        shadow-[inset_0_0_0_2px_#3b2a17,0_8px_24px_rgba(0,0,0,0.8)]
-      "
-    >
+    <div className="w-80 p-4 rounded-md border-2 border-[#c9a14a] bg-gradient-to-b from-[#2a1d12] to-[#1a120b]">
       <input
         type="text"
         placeholder="Enter Deck Name..."
+        value={localDeckName}
+        onChange={(e) => setLocalDeckName(e.target.value)}
         className="
           w-full
           px-3 py-2
@@ -33,14 +96,8 @@ export default function AddDeck({ createNewDeck, handleClose, setDeckName }) {
           focus:shadow-[inset_0_1px_2px_rgba(0,0,0,0.9),0_0_10px_rgba(230,199,106,0.6)]
         "
       />
-      <button
-        onClick={(e) => {
-          setDeckName(e.target.previousSibling.value), handleClose();
-        }}
-        className="mt-2 w-full bg-gradient-to-b from-[#c9a24d] to-[#a8853a] text-[#1a120b] font-bold py-2 px-4 rounded hover:from-[#e6c76a] hover:to-[#d4b05c] transition duration-200"
-      >
-        Create Deck
-      </button>
+
+      <Button label="Create Deck" onClick={handleSubmit} />
     </div>
   );
 }
