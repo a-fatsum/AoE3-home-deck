@@ -10,7 +10,7 @@ export default function SelectedDeckWindow({ selectedDeck, selectedCiv }) {
         <Card
           key={deckData.id ?? deckData.name}
           name={deckData.name}
-          description={deckData.description}
+          // description={deckData.description}
           image={deckData.image}
         />
       ))}

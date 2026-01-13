@@ -47,6 +47,7 @@ function App() {
     //
     console.log("🃏 New Deck Created:", newDeck);
     console.log("🙏 Deck list: ", allDecks);
+    console.log("Selected Deck ▶▶▶ ", selectedDeck);
   }
 
   //
@@ -62,6 +63,7 @@ function App() {
   //   //
   //   console.log("♠️ ♦️ ♣️ ♥️ ", deckList);
   // }
+  //
 
   const selectedDeck = allDecks.find((deck) => deck.id === selectedDeckId);
 
