@@ -41,7 +41,7 @@ export default function Dash({
 
   //
   return (
-    <div className=" bg-[#1a120b] text-[#f5e6b8] p-6 font-serif">
+    <div className=" bg-[#1a120b] w-screen text-[#f5e6b8] p-6 font-['Cinzel']  ">
       {/* Main Frame */}
       <div className="h-full grid grid-cols-12 gap-6 border-4 border-[#c9a24d] bg-[#2b1d12] p-4 shadow-2xl">
         {/* LEFT PANEL – Civ Selection */}
@@ -147,6 +147,7 @@ export default function Dash({
                 allDecks={allDecks}
                 selectedDeck={selectedDeck}
                 selectedCiv={selectedCiv}
+                addOrRemoveCardFromDeck={addOrRemoveCardFromDeck}
               />
             </div>
           </section>

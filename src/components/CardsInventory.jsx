@@ -18,7 +18,8 @@ export default function CardsInventory({
         <h3 className="text-[#c9a24d] text-sm tracking-widest uppercase mt-4 mb-4">
           Inventory: {ageDescriptions[selectedAge] || "Select an Age"}
         </h3>
-        <div className="wrapper grid grid-cols-4 gap-4grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6  ">
+        {/* <div className="wrapper grid grid-cols-4 gap-4grid grid-cols-2 md:grid-cols-3 lg:grid-cols-9 gap-2"> */}
+        <div className="wrapper grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-1  ">
           {inventoryCardsByAge.map((cardData, index) => (
             <Card
               key={index}

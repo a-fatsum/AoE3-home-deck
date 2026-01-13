@@ -11,7 +11,7 @@ export default function Card({
       onClick={() => addOrRemoveCardFromDeck({ name, image, description })}
     >
       {/* Image Frame */}
-      <div className="h-24 bg-[#1a120b] border-b-2 border-[#c9a24d] flex items-center justify-center p-3">
+      <div className="h-24 bg-[#1a120b] border-b-2 border-[#c9a24d] flex items-center justify-center p-1">
         {image ? (
           <img
             src={`src/${image}`}
@@ -27,9 +27,9 @@ export default function Card({
       </div>
 
       {/* Text Content */}
-      <div className="p-2 bg-gradient-to-b from-[#3a2617] to-[#24160d]">
+      <div className="px-1 py-2 bg-gradient-to-b from-[#3a2617] to-[#24160d]">
         {/* Card Name */}
-        <h5 className="text-[#f5e6b8] text-xs font-semibold tracking-wide   border-[#c9a24d]  ">
+        <h5 className="text-[#f5e6b8] text-xs  tracking-wide   border-[#c9a24d]  ">
           {name}
         </h5>
 
