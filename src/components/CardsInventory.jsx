@@ -27,6 +27,7 @@ export default function CardsInventory({
               // description={cardData.description}
               image={cardData.image}
               addOrRemoveCardFromDeck={addOrRemoveCardFromDeck}
+              age={cardData.age}
             />
           ))}
         </div>

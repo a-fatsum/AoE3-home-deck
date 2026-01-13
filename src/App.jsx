@@ -50,21 +50,6 @@ function App() {
     console.log("Selected Deck ▶▶▶ ", selectedDeck);
   }
 
-  //
-  // function addOrRemoveCardFromDeck(card) {
-  //   const isCardInDeck = deckList.some(
-  //     (deckCard) => deckCard.name === card.name
-  //   );
-  //   if (isCardInDeck) {
-  //     setDeckList(deckList.filter((deckCard) => deckCard.name !== card.name));
-  //   } else {
-  //     setDeckList([...deckList, card]);
-  //   }
-  //   //
-  //   console.log("♠️ ♦️ ♣️ ♥️ ", deckList);
-  // }
-  //
-
   const selectedDeck = allDecks.find((deck) => deck.id === selectedDeckId);
 
   function addOrRemoveCardFromDeck(card) {
@@ -95,29 +80,6 @@ function App() {
     });
     console.log("selectedDeck =>>.>>", selectedDeck);
   }
-
-  //================================
-  // function addOrRemoveCardFromDeck(card) {
-  //   if (!selectedDeck) {
-  //     console.log("No deck selected!");
-  //     return;
-  //   }
-  //   const isCardInDeck = selectedDeck.cards.some(
-  //     (deckCard) => deckCard.name === card.name
-  //   );
-  //   // Remove Card
-  //   if (isCardInDeck) {
-  //     selectedDeck.cards = selectedDeck.cards.filter(
-  //       (deckCard) => deckCard.name !== card.name
-  //     );
-  //     console.log("DECK -> selectedDeck cards ❌ ", selectedDeck.cards);
-  //     return;
-  //   }
-  //   // Add Card
-  //   selectedDeck.cards.push(card);
-  //   console.log("DECK -> selectedDeck cards 💪 ", selectedDeck.cards);
-  //   console.log("DECK -> selectedDeck ID 💪 🆔", selectedDeck.id);
-  // }
 
   // ================================
   //

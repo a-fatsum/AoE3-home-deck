@@ -161,13 +161,14 @@ export default function SelectedDeckWindow({
     age2: age2_cards.length,
     age3: age3_cards.length,
     age4: age4_cards.length,
+    age_1_EXAMPLE: age1_cards,
   });
 
-  const ageNumberDivStyle = "w-15 flex justify-center items-center";
+  const ageNumberDivStyle = "w-15 flex justify-center items-center mr-2";
   const ageNumberSpanStyle =
     "font-['Cinzel'] text-5xl font-bold text-[#d6b35a] flex text-center";
   const ageContainerStyle = "flex border-b-2 my-4";
-  const cardsStyle = "flex";
+  const cardsStyle = " flex gap-2 pb-4";
 
   return (
     <>
@@ -184,6 +185,7 @@ export default function SelectedDeckWindow({
                 name={card.name}
                 description={card.description}
                 image={card.image}
+                addOrRemoveCardFromDeck={addOrRemoveCardFromDeck}
               />
             ))}
           </div>
@@ -201,6 +203,7 @@ export default function SelectedDeckWindow({
                 name={card.name}
                 description={card.description}
                 image={card.image}
+                addOrRemoveCardFromDeck={addOrRemoveCardFromDeck}
               />
             ))}
           </div>
@@ -218,6 +221,7 @@ export default function SelectedDeckWindow({
                 name={card.name}
                 description={card.description}
                 image={card.image}
+                addOrRemoveCardFromDeck={addOrRemoveCardFromDeck}
               />
             ))}
           </div>
@@ -235,6 +239,7 @@ export default function SelectedDeckWindow({
                 name={card.name}
                 description={card.description}
                 image={card.image}
+                addOrRemoveCardFromDeck={addOrRemoveCardFromDeck}
               />
             ))}
           </div>
@@ -242,7 +247,7 @@ export default function SelectedDeckWindow({
       </div>
 
       {/* All cards (debug / reference view) */}
-      <div className="wrapper grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-1">
+      {/* <div className="wrapper grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-1">
         {deckCards.map((deckData) => (
           <Card
             key={deckData.id ?? deckData.name}
@@ -251,7 +256,7 @@ export default function SelectedDeckWindow({
             addOrRemoveCardFromDeck={addOrRemoveCardFromDeck}
           />
         ))}
-      </div>
+      </div> */}
     </>
   );
 }
