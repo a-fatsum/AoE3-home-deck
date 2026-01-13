@@ -34,21 +34,48 @@ export default function CivSelector({
         </select>
       </div>
       {/* Age Selection */}
-      <div>
-        <p>Age</p>
+      <div className="w-72 border border-[#7a5a2e] bg-[#1e140c]">
+        <p className="border-b border-[#7a5a2e]/60 px-4 py-2 text-xs uppercase tracking-widest text-[#c9a24d]">
+          Age
+        </p>
+
         {[1, 2, 3, 4].map((age) => (
-          <label key={age} style={{ display: "block" }}>
+          <label
+            key={age}
+            className={`flex cursor-pointer items-center gap-4 px-4 py-3 border-b border-[#7a5a2e]/40
+        ${
+          selectedAge === age
+            ? "bg-[#3a2a17] text-[#f1d27a]"
+            : "text-[#c8b08a] hover:bg-[#2f2114]"
+        }
+      `}
+          >
             <input
               type="radio"
               name="age"
               value={age}
               checked={selectedAge === age}
               onChange={doTheThing}
+              className="hidden"
             />
-            {age === 1 && "I: Exploration Age"}
-            {age === 2 && "II: Commerce Age"}
-            {age === 3 && "III: Fortress Age"}
-            {age === 4 && "V: Industrial Age"}
+
+            <div
+              className={`flex h-7 w-7 items-center justify-center border text-sm font-semibold
+          ${selectedAge === age ? "border-[#f1d27a]" : "border-[#7a5a2e]"}
+        `}
+            >
+              {age === 1 && "I"}
+              {age === 2 && "II"}
+              {age === 3 && "III"}
+              {age === 4 && "IV"}
+            </div>
+
+            <span className="text-sm">
+              {age === 1 && "Exploration Age"}
+              {age === 2 && "Commerce Age"}
+              {age === 3 && "Fortress Age"}
+              {age === 4 && "Industrial Age"}
+            </span>
           </label>
         ))}
       </div>
