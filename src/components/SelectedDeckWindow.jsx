@@ -7,7 +7,7 @@ export default function SelectedDeckWindow({
 }) {
   const isValidDeck = selectedDeck && selectedDeck.civ === selectedCiv;
 
-  const deckCards = isValidDeck ? selectedDeck.cards : [];
+  // const deckCards = isValidDeck ? selectedDeck.cards : [];
 
   //
   const age1_cards = isValidDeck

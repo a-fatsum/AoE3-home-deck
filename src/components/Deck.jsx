@@ -1,18 +1,16 @@
-import { useState } from "react";
-
-export default function Deck({ deckName, numberOfCards, onClick }) {
-  //   const [selected, setSelected] = useState(false);
-  //  ${selected ? "bg-[#4b341f]" : ""} <-------------- Add this stytle later
+export default function Deck({ deckName, numberOfCards, isSelected, onClick }) {
+  //
   return (
     <div
-      //   onClick={() => setSelected(true)}
       onClick={onClick}
       className={`
         flex items-center justify-between
         p-3 rounded-md font-serif
         cursor-pointer
-        transition-all duration-200s
+        transition-all duration-200
         hover:bg-[#3a2617]
+        ${isSelected ? "bg-[#4b341f]" : ""}
+
       `}
     >
       <h4 className="tracking-wide">{deckName}</h4>

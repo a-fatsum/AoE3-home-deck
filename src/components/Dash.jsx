@@ -16,11 +16,13 @@ export default function Dash({
   inventoryCardsByAge,
   selectAge,
   createNewDeck,
+  deckName,
   addOrRemoveCardFromDeck,
-  deckList,
+  // deckList,
   setDeckName,
   allDecks,
   setSelectedDeckId,
+  selectedDeckId,
   selectedDeck,
 }) {
   const flag = selectedCivData?.flag;
@@ -32,6 +34,7 @@ export default function Dash({
 
   const handleClose = () => {
     setShowModal(false);
+    console.log("WTF");
   };
 
   const numberOfDecks = allDecks.length;
@@ -52,6 +55,7 @@ export default function Dash({
           <RenderDecks
             allDecks={allDecks}
             setSelectedDeckId={setSelectedDeckId}
+            selectedDeckId={selectedDeckId}
             selectedCiv={selectedCiv}
           />
 
@@ -76,6 +80,7 @@ export default function Dash({
                 createNewDeck={createNewDeck}
                 // x={e.taregt}
                 setDeckName={setDeckName}
+                deckName={deckName}
                 handleClose={handleClose}
               />
             </Box>
@@ -143,7 +148,7 @@ export default function Dash({
                             scrollbar-thin scrollbar-thumb-[#c9a24d]/60 scrollbar-track-transparent"
             >
               <SelectedDeckWindow
-                deckList={deckList}
+                // deckList={deckList}
                 allDecks={allDecks}
                 selectedDeck={selectedDeck}
                 selectedCiv={selectedCiv}

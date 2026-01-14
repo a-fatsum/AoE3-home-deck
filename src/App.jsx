@@ -16,9 +16,9 @@ function App() {
 
   const [selectedCiv, setSelectedCiv] = useState(civilizations[0]);
   const [selectedAge, setSelectedAge] = useState("");
-  const [deckList, setDeckList] = useState([]);
+  // const [deckList, setDeckList] = useState([]);
   const [allDecks, setAllDecks] = useState([]);
-  const [selectedCard, setSelectedCard] = useState();
+  // const [selectedCard, setSelectedCard] = useState();
   const [deckName, setDeckName] = useState("");
   const [selectedDeckId, setSelectedDeckId] = useState("");
 
@@ -48,6 +48,7 @@ function App() {
     console.log("🃏 New Deck Created:", newDeck);
     console.log("🙏 Deck list: ", allDecks);
     console.log("Selected Deck ▶▶▶ ", selectedDeck);
+    // console.log("Deck ID �🆔�", selectedDeck.id);
   }
 
   const selectedDeck = allDecks.find((deck) => deck.id === selectedDeckId);
@@ -99,12 +100,14 @@ function App() {
         selectedAge={selectedAge}
         selectAge={selectAge}
         createNewDeck={createNewDeck}
+        deckName={deckName}
         addOrRemoveCardFromDeck={addOrRemoveCardFromDeck}
-        deckList={deckList}
+        // deckList={deckList}
         setDeckName={setDeckName}
         allDecks={allDecks}
         setSelectedDeckId={setSelectedDeckId}
         selectedDeck={selectedDeck}
+        selectedDeckId={selectedDeckId}
       />
     </>
   );

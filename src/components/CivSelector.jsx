@@ -34,7 +34,7 @@ export default function CivSelector({
         </select>
       </div>
       {/* Age Selection */}
-      <div className="w-72 border border-[#7a5a2e] bg-[#1e140c]">
+      <div className=" border border-[#7a5a2e] bg-[#1e140c] rounded-lg mt-4">
         <p className="border-b border-[#7a5a2e]/60 px-4 py-2 text-xs uppercase tracking-widest text-[#c9a24d]">
           Age
         </p>
