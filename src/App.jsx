@@ -69,6 +69,12 @@ function App() {
             (deckCard) => deckCard.name !== card.name
           );
         } else {
+          // Add card logic
+          if (deck.cards.length >= 25) {
+            alert("Deck limit reached (25 cards).");
+            console.log("Deck limit reached (25 cards).");
+            return deck;
+          }
           // Add card
           updatedCards = [...deck.cards, card];
         }
