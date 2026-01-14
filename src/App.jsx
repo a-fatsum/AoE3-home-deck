@@ -75,6 +75,38 @@ function App() {
             console.log("Deck limit reached (25 cards).");
             return deck;
           }
+
+          // const age1cardsLessThan10 =
+          //   deck.cards.filter((c) => c.age === 1).length < 10;
+          // const age2cardsLessThan10 =
+          //   deck.cards.filter((c) => c.age === 2).length < 10;
+          // const age3cardsLessThan10 =
+          //   deck.cards.filter((c) => c.age === 3).length < 10;
+          // const age4cardsLessThan10 =
+          //   deck.cards.filter((c) => c.age === 4).length < 10;
+
+          // if (
+          //   (card.age === 1 && !age1cardsLessThan10) ||
+          //   (card.age === 2 && !age2cardsLessThan10) ||
+          //   (card.age === 3 && !age3cardsLessThan10) ||
+          //   (card.age === 4 && !age4cardsLessThan10)
+          // ) {
+          //   alert("Cannot add more cards of this age (max 10).");
+          //   console.log("Cannot add more cards of this age (max 10).");
+          //   return deck;
+          // }
+
+          // note to self: refactor above code to be dynamic based on card.age
+          const cardsOfSameAge = deck.cards.filter((c) => c.age === card.age);
+
+          const ageCardsLessThan10 = cardsOfSameAge.length < 10;
+
+          if (!ageCardsLessThan10) {
+            alert("Cannot add more cards of this age (max 10).");
+            console.log("Cannot add more cards of this age (max 10).");
+            return deck;
+          }
+
           // Add card
           updatedCards = [...deck.cards, card];
         }
