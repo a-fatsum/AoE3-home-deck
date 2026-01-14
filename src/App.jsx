@@ -16,9 +16,7 @@ function App() {
 
   const [selectedCiv, setSelectedCiv] = useState(civilizations[0]);
   const [selectedAge, setSelectedAge] = useState("");
-  // const [deckList, setDeckList] = useState([]);
   const [allDecks, setAllDecks] = useState([]);
-  // const [selectedCard, setSelectedCard] = useState();
   const [deckName, setDeckName] = useState("");
   const [selectedDeckId, setSelectedDeckId] = useState("");
 
@@ -42,13 +40,11 @@ function App() {
       cards: [],
     };
     setAllDecks((prev) => [...prev, newDeck]);
-    // setDeckList([]); // <------------ empty deck for new creation
     setDeckName(name);
     //
-    console.log("🃏 New Deck Created:", newDeck);
-    console.log("🙏 Deck list: ", allDecks);
-    console.log("Selected Deck ▶▶▶ ", selectedDeck);
-    // console.log("Deck ID �🆔�", selectedDeck.id);
+    // console.log("🃏 New Deck Created:", newDeck);
+    // console.log("🙏 Deck list: ", allDecks);
+    // console.log("Selected Deck ▶▶▶ ", selectedDeck);
   }
 
   const selectedDeck = allDecks.find((deck) => deck.id === selectedDeckId);
@@ -72,7 +68,7 @@ function App() {
           // Add card logic
           if (deck.cards.length >= 25) {
             alert("Deck limit reached (25 cards).");
-            console.log("Deck limit reached (25 cards).");
+            // console.log("Deck limit reached (25 cards).");
             return deck;
           }
 
@@ -99,11 +95,11 @@ function App() {
           // note to self: refactor above code to be dynamic based on card.age
           const cardsOfSameAge = deck.cards.filter((c) => c.age === card.age);
 
-          const ageCardsLessThan10 = cardsOfSameAge.length < 10;
+          const ageCardsLessThan10 = cardsOfSameAge.length < 10; // <------------------ Cards count check
 
           if (!ageCardsLessThan10) {
             alert("Cannot add more cards of this age (max 10).");
-            console.log("Cannot add more cards of this age (max 10).");
+            // console.log("Cannot add more cards of this age (max 10).");
             return deck;
           }
 
@@ -117,14 +113,34 @@ function App() {
         };
       });
     });
-    console.log("selectedDeck =>>.>>", selectedDeck);
+    // console.log("selectedDeck =>>.>>", selectedDeck);
+  }
+
+  // Handle Delete Deck
+
+  function deleteDeck(deckId) {
+    if (selectedDeck.cards.length > 0 && selectedDeckId === deckId) {
+      console.log("testing deleteDeck function");
+      const confirmed = window.confirm(
+        "Deck is not empty. Are you sure you want to delete?"
+      );
+      if (confirmed) {
+        setAllDecks((prevDecks) =>
+          prevDecks.filter((deck) => deck.id !== deckId)
+        );
+      } else {
+        return;
+      }
+    }
+
+    console.log("Deck deleted:", deckId);
   }
 
   // ================================
   //
   function selectAge(age) {
     setSelectedAge(age);
-    console.log("selectedAge 🎁", selectedAge);
+    // console.log("selectedAge 🎁", selectedAge);
   }
 
   return (
@@ -140,12 +156,12 @@ function App() {
         createNewDeck={createNewDeck}
         deckName={deckName}
         addOrRemoveCardFromDeck={addOrRemoveCardFromDeck}
-        // deckList={deckList}
         setDeckName={setDeckName}
         allDecks={allDecks}
         setSelectedDeckId={setSelectedDeckId}
         selectedDeck={selectedDeck}
         selectedDeckId={selectedDeckId}
+        deleteDeck={deleteDeck}
       />
     </>
   );

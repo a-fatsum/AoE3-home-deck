@@ -24,6 +24,7 @@ export default function Dash({
   setSelectedDeckId,
   selectedDeckId,
   selectedDeck,
+  deleteDeck,
 }) {
   const flag = selectedCivData?.flag;
 
@@ -34,7 +35,7 @@ export default function Dash({
 
   const handleClose = () => {
     setShowModal(false);
-    console.log("WTF");
+    // console.log("WTF");
   };
 
   const numberOfDecks = allDecks.length;
@@ -96,7 +97,12 @@ export default function Dash({
               }}
             />
             <Button label={"save"} />
-            <Button label={"delete"} />
+            <Button
+              label={"delete"}
+              onClick={() => {
+                deleteDeck(selectedDeckId);
+              }}
+            />
             <Button label={"copy"} />
           </div>
 

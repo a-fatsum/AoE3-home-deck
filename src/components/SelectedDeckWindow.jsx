@@ -27,13 +27,13 @@ export default function SelectedDeckWindow({
     : [];
 
   // 🕵 Debug
-  console.log({
-    age1: age1_cards.length,
-    age2: age2_cards.length,
-    age3: age3_cards.length,
-    age4: age4_cards.length,
-    age_1_EXAMPLE: age1_cards,
-  });
+  // console.log({
+  //   age1: age1_cards.length,
+  //   age2: age2_cards.length,
+  //   age3: age3_cards.length,
+  //   age4: age4_cards.length,
+  //   age_1_EXAMPLE: age1_cards,
+  // });
 
   const ageNumberDivStyle = "min-w-15 flex justify-center items-center mr-2";
   const ageNumberSpanStyle =
