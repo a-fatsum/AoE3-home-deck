@@ -1,13 +1,19 @@
-import { useState } from "react";
+// import { useState } from "react";
 import Button from "./Button";
 
-export default function AddDeck({ createNewDeck, handleClose }) {
-  const [localDeckName, setLocalDeckName] = useState("");
+export default function AddDeck({
+  createNewDeck,
+  handleClose,
+  deckName,
+  setDeckName,
+}) {
+  // const [localDeckName, setLocalDeckName] = useState("");
 
   function handleSubmit() {
-    if (!localDeckName.trim()) return;
-
-    createNewDeck(localDeckName);
+    // if (!localDeckName.trim()) return;
+    if (!deckName.trim()) return;
+    createNewDeck(deckName);
+    setDeckName("");
     handleClose();
   }
 
@@ -16,8 +22,8 @@ export default function AddDeck({ createNewDeck, handleClose }) {
       <input
         type="text"
         placeholder="Enter Deck Name..."
-        value={localDeckName}
-        onChange={(e) => setLocalDeckName(e.target.value)}
+        value={deckName}
+        onChange={(e) => setDeckName(e.target.value)}
         className="
           w-full
           px-3 py-2

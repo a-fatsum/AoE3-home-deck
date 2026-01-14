@@ -41,10 +41,6 @@ function App() {
     };
     setAllDecks((prev) => [...prev, newDeck]);
     setDeckName(name);
-    //
-    // console.log("🃏 New Deck Created:", newDeck);
-    // console.log("🙏 Deck list: ", allDecks);
-    // console.log("Selected Deck ▶▶▶ ", selectedDeck);
   }
 
   const selectedDeck = allDecks.find((deck) => deck.id === selectedDeckId);
@@ -113,27 +109,34 @@ function App() {
         };
       });
     });
-    // console.log("selectedDeck =>>.>>", selectedDeck);
   }
 
   // Handle Delete Deck
-
   function deleteDeck(deckId) {
-    if (selectedDeck.cards.length > 0 && selectedDeckId === deckId) {
-      console.log("testing deleteDeck function");
+    const isSelected = selectedDeckId === deckId;
+    const isNotEmpty = selectedDeck.cards.length > 0;
+    if (isSelected && isNotEmpty) {
       const confirmed = window.confirm(
         "Deck is not empty. Are you sure you want to delete?"
       );
-      if (confirmed) {
-        setAllDecks((prevDecks) =>
-          prevDecks.filter((deck) => deck.id !== deckId)
-        );
-      } else {
-        return;
-      }
+      if (!confirmed) return;
     }
+    setAllDecks((prevDecks) => prevDecks.filter((deck) => deck.id !== deckId));
+  }
 
-    console.log("Deck deleted:", deckId);
+  // Handle Copy Deck
+  function copyDeck(deckId) {
+    const deckToCopy = allDecks.find((deck) => deck.id === deckId);
+    if (deckToCopy) {
+      const copiedDeck = {
+        ...deckToCopy,
+        id: Date.now(),
+        name: deckToCopy.name + " (Copy)",
+      };
+      setAllDecks((prevDecks) => [...prevDecks, copiedDeck]);
+      setSelectedDeckId(copiedDeck.id);
+      console.log("Deck copied:", copiedDeck);
+    }
   }
 
   // ================================
@@ -162,8 +165,10 @@ function App() {
         selectedDeck={selectedDeck}
         selectedDeckId={selectedDeckId}
         deleteDeck={deleteDeck}
+        copyDeck={copyDeck}
       />
     </>
   );
 }
+
 export default App;

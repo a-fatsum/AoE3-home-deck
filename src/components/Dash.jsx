@@ -25,6 +25,7 @@ export default function Dash({
   selectedDeckId,
   selectedDeck,
   deleteDeck,
+  copyDeck,
 }) {
   const flag = selectedCivData?.flag;
 
@@ -103,7 +104,12 @@ export default function Dash({
                 deleteDeck(selectedDeckId);
               }}
             />
-            <Button label={"copy"} />
+            <Button
+              label={"copy"}
+              onClick={() => {
+                copyDeck(selectedDeckId);
+              }}
+            />
           </div>
 
           {/* Bottom Left – Civ Selector */}
