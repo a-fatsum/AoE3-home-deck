@@ -9,6 +9,7 @@ export default function Deck({ deckName, numberOfCards, isSelected, onClick }) {
         cursor-pointer
         transition-all duration-200
         hover:bg-[#593d28]
+        font-['Cinzel']
         ${isSelected ? "bg-[#4b341f]" : ""}
       `}
     >

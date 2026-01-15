@@ -43,7 +43,7 @@ export default function SelectedDeckWindow({
 
   return (
     <>
-      <div className="wrapper">
+      <div className="wrapper  font-['Cinzel']">
         {/* Age I */}
         <div className={ageContainerStyle}>
           <div className={ageNumberDivStyle}>

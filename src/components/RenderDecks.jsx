@@ -11,11 +11,11 @@ export default function RenderDecks({
   return (
     <div
       className="flex-1 bg-gradient-to-b from-[#3a2617] to-[#24160d]
-                 border-2 border-[#c9a24d] rounded-md p-4 font-serif"
+                 border-2 border-[#c9a24d] rounded-md p-4    font-['Cinzel']"
     >
-      <h3 className="text-[#c9a24d] text-sm tracking-widest uppercase mb-2">
+      <h2 className="text-[#c9a24d] text-xl tracking-wide tracking-widest uppercase mb-2">
         Available Decks
-      </h3>
+      </h2>
 
       {filteredDecks.map((deck) => (
         <Deck

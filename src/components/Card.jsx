@@ -8,7 +8,7 @@ export default function Card({
   return (
     <div
       className="w-30  bg-[#2b1d12] border-2 border-[#c9a24d] rounded-md shadow-lg overflow-hidden
-                    hover:scale-[1.03] hover:shadow-2xl transition-all duration-200"
+                    hover:scale-[1.03] hover:shadow-2xl transition-all duration-200  font-['Cinzel']"
       onClick={() => addOrRemoveCardFromDeck({ name, image, description, age })}
     >
       {/* Image Frame */}

@@ -14,7 +14,7 @@ export default function CardsInventory({
 
   return (
     <>
-      <div className="wrapper  ">
+      <div className="wrapper  font-['Cinzel'] ">
         <h3 className="text-[#c9a24d] text-sm tracking-widest uppercase mt-4 mb-4">
           Inventory: {ageDescriptions[selectedAge] || "Select an Age"}
         </h3>

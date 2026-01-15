@@ -10,7 +10,7 @@ export default function Button({ label, onClick }) {
         bg-gradient-to-b from-[#3a2a1a] to-[#1c120a]
         border border-[#8f6b2a]
         rounded-[2px]
-
+     font-['Cinzel']
         shadow
         shadow-[inset_0_1px_0_rgba(255,220,160,0.25),0_3px_6px_rgba(0,0,0,0.8)]
 

@@ -10,10 +10,10 @@ export default function CivSelector({
   }
 
   return (
-    <div>
+    <div className=" font-['Cinzel']">
       {/* Civilization Selection */}
       <div>
-        <h3 className="text-[#c9a24d] text-sm tracking-widest uppercase mb-3">
+        <h3 className="text-[#c9a24d] text-base tracking-widest uppercase mb-3">
           Civilizations
         </h3>
 
@@ -35,7 +35,7 @@ export default function CivSelector({
       </div>
       {/* Age Selection */}
       <div className=" border border-[#7a5a2e] bg-[#1e140c] rounded-lg mt-4">
-        <p className="border-b border-[#7a5a2e]/60 px-4 py-2 text-xs uppercase tracking-widest text-[#c9a24d]">
+        <p className="border-b border-[#7a5a2e]/60 px-4 py-2   uppercase tracking-widest text-[#c9a24d] text-[#c9a24d] text-base  uppercase ">
           Age
         </p>
 

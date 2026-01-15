@@ -199,19 +199,21 @@ export default function Dash({
             <div className="border-b border-[#c9a24d] pb-2 mb-4 flex items-center justify-between">
               {/* FLAG */}
               <div>
-                <div className="flex gap-4   ">
+                <div className="flex gap-4   items-center my-2 ">
                   <h2 className="text-xl tracking-wide">
                     {selectedCiv || "Civilization Deck"}
                   </h2>
-                  <span>{numberOfDecksPerCiv.length} </span>
+                  <span className="mt-[2px]">
+                    {numberOfDecksPerCiv.length}{" "}
+                  </span>
                 </div>
-                <img className="w-18 h-12" src={flag} alt={selectedCiv} />
+                <img className="mb-2 w-20 h-12" src={flag} alt={selectedCiv} />
               </div>
-
-              <span className="text-sm text-[#c9a24d] uppercase tracking-widest">
+              {/* className="text-xl tracking-wide" */}
+              <p className=" text-xl tracking-wide text-[#c9a24d] uppercase tracking-widest">
                 Total Number of Decks:{" "}
-                <span className="text-lg">{numberOfDecks}</span>
-              </span>
+                <span className="text-xl tracking-wide">{numberOfDecks}</span>
+              </p>
             </div>
 
             {/* Cards */}
