@@ -60,7 +60,7 @@ export default function CardsInventory({
 
       <div
         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2
-                      max-h-[400px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-[#c9a24d]/60 scrollbar-track-transparent"
+                      max-h-[400px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-[#c9a24d]/60 scrollbar-track-transparent p-2"
       >
         {inventoryCardsByAge.map((cardData, index) => (
           <Card
