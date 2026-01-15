@@ -8,9 +8,8 @@ export default function Deck({ deckName, numberOfCards, isSelected, onClick }) {
         p-3 rounded-md font-serif
         cursor-pointer
         transition-all duration-200
-        hover:bg-[#3a2617]
+        hover:bg-[#593d28]
         ${isSelected ? "bg-[#4b341f]" : ""}
-
       `}
     >
       <h4 className="tracking-wide">{deckName}</h4>
