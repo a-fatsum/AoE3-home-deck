@@ -223,6 +223,7 @@ export default function Dash({
             >
               <SelectedDeckWindow
                 // deckList={deckList}
+
                 allDecks={allDecks}
                 selectedDeck={selectedDeck}
                 selectedCiv={selectedCiv}
@@ -231,15 +232,15 @@ export default function Dash({
             </div>
           </section>
 
-          {/* Bottom Right – Action Bar */}
+          {/* Bottom Right –  Render cards*/}
+
           <section
             className="min-h-46 bg-gradient-to-b from-[#3a2617] to-[#24160d]
-                              border-2 border-[#c9a24d] rounded-md flex items-center justify-center gap-6"
+             border-2 border-[#c9a24d] rounded-md p-3 flex flex-col gap-2"
           >
             <CardsInventory
               selectedAge={selectedAge}
               inventoryCardsByAge={inventoryCardsByAge}
-              // createNewDeck={createNewDeck}
               addOrRemoveCardFromDeck={addOrRemoveCardFromDeck}
             />
           </section>
