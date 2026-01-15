@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { useEffect } from "react";
 import Dash from "./components/Dash";
 import data from "./data/allCards.json";
 
@@ -14,13 +15,35 @@ function App() {
     "Spanish",
   ];
 
+  const STORAGE_KEY = "deck_builder_state";
+
   const [selectedCiv, setSelectedCiv] = useState(civilizations[0]);
   const [selectedAge, setSelectedAge] = useState("");
-  const [allDecks, setAllDecks] = useState([]);
+  // const [allDecks, setAllDecks] = useState([]);
+  const [allDecks, setAllDecks] = useState(() => {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored ? JSON.parse(stored) : [];
+  });
   const [deckName, setDeckName] = useState("");
-  const [selectedDeckId, setSelectedDeckId] = useState("");
+  // const [selectedDeckId, setSelectedDeckId] = useState("");
+  const [selectedDeckId, setSelectedDeckId] = useState(() => {
+    const stored = localStorage.getItem("selectedDeckId");
+    return stored ? JSON.parse(stored) : null;
+  });
+  //
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(allDecks));
+  }, [allDecks]);
 
+  useEffect(() => {
+    localStorage.setItem("selectedDeckId", JSON.stringify(selectedDeckId));
+  }, [selectedDeckId]);
+
+  //
   const selectedCivData = selectedCiv ? data[selectedCiv] : null;
+
+  //
+  // const STORAGE_KEY = "deck_builder_state";
 
   function handleCivSelection(civ) {
     setSelectedCiv(civ);
@@ -30,7 +53,7 @@ function App() {
   const inventoryCardsByAge = useMemo(() => {
     if (!selectedCiv || !selectedAge) return [];
     return data[selectedCiv].cards.filter((card) => card.age === selectedAge);
-  }, [data, selectedCiv, selectedAge]);
+  }, [selectedCiv, selectedAge]);
 
   function createNewDeck(name) {
     const newDeck = {
@@ -123,16 +146,20 @@ function App() {
       alert("Please select a deck first.");
       return;
     }
+
     const isSelected = selectedDeckId === deckId;
-    const isNotEmpty = selectedDeck?.cards?.length > 0;
+    const isNotEmpty = selectedDeck?.cards.length > 0;
+
     if (isSelected && isNotEmpty) {
       const confirmed = window.confirm(
         "Deck is not empty. Are you sure you want to delete?"
       );
       if (!confirmed) return;
     }
+
     setAllDecks((prevDecks) => prevDecks.filter((deck) => deck.id !== deckId));
-    if (deckId === selectedDeckId) {
+
+    if (selectedDeckId === deckId) {
       setSelectedDeckId(null);
     }
   }

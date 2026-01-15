@@ -30,7 +30,6 @@ export default function Dash({
 }) {
   const flag = selectedCivData?.flag;
   const [modalMode, setModalMode] = useState("create"); // "create" | "rename"
-
   const [showModal, setShowModal] = useState(false);
 
   // --------------------------------------------------------------------------------- Keep old code for reference later
