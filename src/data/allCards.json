@@ -1,6 +1,6 @@
 {
   "British": {
-    "flag": "src/assets/flags/British.png",
+    "flag": "assets/flags/British.png",
     "cards": [
       {
         "name": "Civilization",
@@ -944,7 +944,7 @@
     ]
   },
   "Dutch": {
-    "flag": "src/assets/flags/Dutch.png",
+    "flag": "assets/flags/Dutch.png",
 
     "cards": [
       {
@@ -1937,7 +1937,7 @@
     ]
   },
   "Germans": {
-    "flag": "src/assets/flags/Germans.png",
+    "flag": "assets/flags/Germans.png",
 
     "cards": [
       {
@@ -2942,7 +2942,7 @@
     ]
   },
   "Russians": {
-    "flag": "src/assets/flags/Flag_RussianDE.webp",
+    "flag": "assets/flags/Flag_RussianDE.webp",
 
     "cards": [
       {
@@ -3979,7 +3979,7 @@
     ]
   },
   "French": {
-    "flag": "src/assets/flags/French_AoE4.webp",
+    "flag": "assets/flags/French_AoE4.webp",
     "cards": [
       {
         "name": "Civilization",
@@ -4917,7 +4917,7 @@
     ]
   },
   "Ottomans": {
-    "flag": "src/assets/flags/Ottomans.png",
+    "flag": "assets/flags/Ottomans.png",
 
     "cards": [
       {
@@ -5916,7 +5916,7 @@
     ]
   },
   "Portuguese": {
-    "flag": "src/assets/flags/Portuguese.png",
+    "flag": "assets/flags/Portuguese.png",
 
     "cards": [
       {
@@ -6867,7 +6867,7 @@
     ]
   },
   "Spanish": {
-    "flag": "src/assets/flags/Flag_RussianDE.webp",
+    "flag": "assets/flags/Flag_RussianDE.webp",
 
     "cards": [
       {

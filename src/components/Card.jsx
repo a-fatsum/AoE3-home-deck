@@ -76,7 +76,11 @@ export default function Card({
     setCoords({ x: rect.right + 8, y: rect.top });
     setIsHovered(true);
   };
+  //
 
+  const BASE_PATH = "/AoE3-home-deck/";
+
+  //
   return (
     <div
       className="relative w-32 bg-[#2b1d12] border-2 border-[#c9a24d] rounded-md shadow-lg  
@@ -89,7 +93,10 @@ export default function Card({
       <div className="h-24 bg-[#1a120b] border-b-2 border-[#c9a24d] flex items-center justify-center p-1">
         {image ? (
           <img
-            src={`src/${image}`}
+            // src={`src/${image}`}
+            // src={image}
+            src={`${BASE_PATH}${image}`}
+            //
             alt={name}
             className="h-full w-full object-contain image-pixelated"
           />
