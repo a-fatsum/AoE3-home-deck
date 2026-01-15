@@ -69,7 +69,11 @@ export default function Dash({
   }
 
   function openRenameModal() {
-    if (!selectedDeck) return;
+    // if (!selectedDeck) return;
+    if (!selectedDeckId) {
+      alert("Please select a deck first.");
+      return;
+    }
     setDeckName(selectedDeck.name);
     setModalMode("rename");
     setShowModal(true);
@@ -140,7 +144,6 @@ export default function Dash({
             <Button
               label={"create"}
               // --------------------------------------------------------------------------------- Keep old code for reference later
-
               // onClick={() => {
               //   renderModal();
               // }}
@@ -150,7 +153,6 @@ export default function Dash({
             <Button
               label={"rename"}
               // --------------------------------------------------------------------------------- Keep old code for reference later
-
               // onClick={() => {
               //   handleRename(selectedDeckId);
               // }}

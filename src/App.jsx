@@ -46,6 +46,10 @@ function App() {
   const selectedDeck = allDecks.find((deck) => deck.id === selectedDeckId);
 
   function addOrRemoveCardFromDeck(card) {
+    if (!selectedDeckId) {
+      alert("Please select a deck first.");
+      return;
+    }
     setAllDecks((prevDecks) => {
       return prevDecks.map((deck) => {
         if (deck.id !== selectedDeckId) {
@@ -68,6 +72,7 @@ function App() {
             return deck;
           }
 
+          // --------------------------------------------------------------------------------- Keep old code for reference later
           // const age1cardsLessThan10 =
           //   deck.cards.filter((c) => c.age === 1).length < 10;
           // const age2cardsLessThan10 =
@@ -112,9 +117,14 @@ function App() {
   }
 
   // Handle Delete Deck
+
   function deleteDeck(deckId) {
+    if (!selectedDeckId) {
+      alert("Please select a deck first.");
+      return;
+    }
     const isSelected = selectedDeckId === deckId;
-    const isNotEmpty = selectedDeck.cards.length > 0;
+    const isNotEmpty = selectedDeck?.cards?.length > 0;
     if (isSelected && isNotEmpty) {
       const confirmed = window.confirm(
         "Deck is not empty. Are you sure you want to delete?"
@@ -122,6 +132,9 @@ function App() {
       if (!confirmed) return;
     }
     setAllDecks((prevDecks) => prevDecks.filter((deck) => deck.id !== deckId));
+    if (deckId === selectedDeckId) {
+      setSelectedDeckId(null);
+    }
   }
 
   // Handle Copy Deck

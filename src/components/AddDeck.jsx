@@ -16,7 +16,7 @@ export default function AddDeck({
   }
 
   return (
-    <div className="w-80 p-4 rounded-md border-2 border-[#c9a14a] bg-gradient-to-b from-[#2a1d12] to-[#1a120b]">
+    <div className="w-80 font-['Cinzel'] p-4 rounded-md border-2 border-[#c9a14a] bg-gradient-to-b from-[#2a1d12] to-[#1a120b]">
       <input
         type="text"
         placeholder={
