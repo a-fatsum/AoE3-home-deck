@@ -47,6 +47,7 @@ function App() {
 
   function handleCivSelection(civ) {
     setSelectedCiv(civ);
+    setSelectedDeckId("");
   }
 
   // Inventory Cards selected by age and civ
