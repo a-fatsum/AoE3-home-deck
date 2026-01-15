@@ -26,13 +26,18 @@ export default function Dash({
   selectedDeck,
   deleteDeck,
   copyDeck,
+  setAllDecks,
 }) {
   const flag = selectedCivData?.flag;
+  const [modalMode, setModalMode] = useState("create"); // "create" | "rename"
 
   const [showModal, setShowModal] = useState(false);
-  function renderModal() {
-    setShowModal(true);
-  }
+
+  // --------------------------------------------------------------------------------- Keep old code for reference later
+
+  // function renderModal() {
+  //   setShowModal(true);
+  // }
 
   const handleClose = () => {
     setShowModal(false);
@@ -43,6 +48,48 @@ export default function Dash({
   const numberOfDecksPerCiv = allDecks.filter(
     (deck) => deck.civ === selectedCiv
   );
+
+  // --------------------------------------------------------------------------------- Handle rename
+  // --------------------------------------------------------------------------------- Keep old code for reference later
+  // function handleRename(deckId) {
+  //   const newName = prompt("Enter new deck name:");
+  //   if (newName && newName.trim() !== "") {
+  //     setAllDecks((prevDecks) =>
+  //       prevDecks.map((deck) =>
+  //         deck.id === deckId ? { ...deck, name: newName } : deck
+  //       )
+  //     );
+  //   }
+  // }
+
+  function openCreateModal() {
+    setDeckName("");
+    setModalMode("create");
+    setShowModal(true);
+  }
+
+  function openRenameModal() {
+    if (!selectedDeck) return;
+    setDeckName(selectedDeck.name);
+    setModalMode("rename");
+    setShowModal(true);
+  }
+
+  function handleModalSubmit(name) {
+    if (modalMode === "create") {
+      createNewDeck(name);
+    }
+
+    if (modalMode === "rename") {
+      setAllDecks((prevDecks) =>
+        prevDecks.map((deck) =>
+          deck.id === selectedDeckId ? { ...deck, name } : deck
+        )
+      );
+    }
+  }
+
+  // ++++++++++++++++++++++++++++++++++++++++
 
   //
   return (
@@ -79,11 +126,11 @@ export default function Dash({
               }}
             >
               <AddDeck
-                createNewDeck={createNewDeck}
-                // x={e.taregt}
-                setDeckName={setDeckName}
                 deckName={deckName}
+                setDeckName={setDeckName}
                 handleClose={handleClose}
+                mode={modalMode}
+                onSubmit={handleModalSubmit}
               />
             </Box>
           </Modal>
@@ -92,12 +139,24 @@ export default function Dash({
           <div className="grid grid-cols-2">
             <Button
               label={"create"}
-              onClick={() => {
-                // createNewDeck(),
-                renderModal();
-              }}
+              // --------------------------------------------------------------------------------- Keep old code for reference later
+
+              // onClick={() => {
+              //   renderModal();
+              // }}
+              onClick={openCreateModal}
             />
-            <Button label={"save"} />
+
+            <Button
+              label={"rename"}
+              // --------------------------------------------------------------------------------- Keep old code for reference later
+
+              // onClick={() => {
+              //   handleRename(selectedDeckId);
+              // }}
+              onClick={openRenameModal}
+            />
+
             <Button
               label={"delete"}
               onClick={() => {

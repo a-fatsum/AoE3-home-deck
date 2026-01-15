@@ -166,6 +166,7 @@ function App() {
         selectedDeckId={selectedDeckId}
         deleteDeck={deleteDeck}
         copyDeck={copyDeck}
+        setAllDecks={setAllDecks}
       />
     </>
   );
